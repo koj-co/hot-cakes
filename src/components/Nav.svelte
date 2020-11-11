@@ -1,39 +1,46 @@
 <script>
   import {
     Header,
-    HeaderNav,
-    HeaderNavItem,
-    HeaderNavMenu,
+    HeaderAction,
+    HeaderActionSearch,
+    HeaderGlobalAction,
+    HeaderPanelDivider,
+    HeaderPanelLink,
+    HeaderPanelLinks,
+    HeaderUtilities,
     SideNav,
     SideNavItems,
+    SideNavLink,
     SideNavMenu,
     SideNavMenuItem,
-    SideNavLink,
     SkipToContent,
-    Content,
-    Grid,
-    Row,
-    Column,
   } from "carbon-components-svelte";
+  import SettingsAdjust20 from "carbon-icons-svelte/lib/SettingsAdjust20";
 
   let isSideNavOpen = false;
+  let isOpen = false;
 </script>
 
-<Header company="IBM" platformName="Carbon Svelte" bind:isSideNavOpen>
+<Header company="🍰 Koj" platformName="Hot Cakes" bind:isSideNavOpen>
   <div slot="skip-to-content">
     <SkipToContent />
   </div>
-
-  <HeaderNav>
-    <HeaderNavItem href="/" text="Link 1" />
-    <HeaderNavItem href="/" text="Link 2" />
-    <HeaderNavItem href="/" text="Link 3" />
-    <HeaderNavMenu text="Menu">
-      <HeaderNavItem href="/" text="Link 1" />
-      <HeaderNavItem href="/" text="Link 2" />
-      <HeaderNavItem href="/" text="Link 3" />
-    </HeaderNavMenu>
-  </HeaderNav>
+  <HeaderUtilities>
+    <HeaderActionSearch />
+    <HeaderGlobalAction aria-label="Settings" icon={SettingsAdjust20} />
+    <HeaderAction bind:isOpen>
+      <HeaderPanelLinks>
+        <HeaderPanelDivider>Switcher subject 1</HeaderPanelDivider>
+        <HeaderPanelLink>Switcher item 1</HeaderPanelLink>
+        <HeaderPanelDivider>Switcher subject 2</HeaderPanelDivider>
+        <HeaderPanelLink>Switcher item 1</HeaderPanelLink>
+        <HeaderPanelLink>Switcher item 2</HeaderPanelLink>
+        <HeaderPanelLink>Switcher item 3</HeaderPanelLink>
+        <HeaderPanelLink>Switcher item 4</HeaderPanelLink>
+        <HeaderPanelLink>Switcher item 5</HeaderPanelLink>
+      </HeaderPanelLinks>
+    </HeaderAction>
+  </HeaderUtilities>
 </Header>
 
 <SideNav bind:isOpen={isSideNavOpen}>
@@ -48,13 +55,3 @@
     </SideNavMenu>
   </SideNavItems>
 </SideNav>
-
-<Content>
-  <Grid>
-    <Row>
-      <Column>
-        <h1>Welcome</h1>
-      </Column>
-    </Row>
-  </Grid>
-</Content>

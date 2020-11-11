@@ -1,13 +1,18 @@
-<script lang="ts">
+<script>
+  import { Column, Content, Grid, Row } from "carbon-components-svelte";
   import Nav from "../components/Nav.svelte";
 </script>
 
-<style lang="scss" global>
-  @import "carbon-components-svelte/css/g10";
-</style>
-
 <Nav />
 
-<main>
-  <slot />
-</main>
+<Content>
+  <Grid>
+    <Row>
+      <Column>
+        <main>
+          <slot />
+        </main>
+      </Column>
+    </Row>
+  </Grid>
+</Content>
